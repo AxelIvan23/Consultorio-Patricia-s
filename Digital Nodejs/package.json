@@ -1,0 +1,19 @@
+{
+  "name": "digital-nodejs",
+  "version": "1.0.0",
+  "description": "Proyecto Final",
+  "main": "index.js",
+  "scripts": {
+    "test": "Prueba"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AxelIvan23/Consultorio-Patricia-s.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AxelIvan23/Consultorio-Patricia-s/issues"
+  },
+  "homepage": "https://github.com/AxelIvan23/Consultorio-Patricia-s#readme"
+}
