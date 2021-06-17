@@ -1,0 +1,66 @@
+.navegador{
+    display: flex;
+    padding: 1px 100px;
+    justify-content: space-between;
+    box-shadow: 1px 5px 13px -1px rgba(0,0,0,0.59);
+    -webkit-box-shadow: 1px 5px 13px -1px rgba(0,0,0,0.59);
+    -moz-box-shadow: 1px 5px 13px -1px rgba(0,0,0,0.59);
+}
+
+.navegador>nav{
+    display: flex;
+    align-content: space-between;
+    justify-content: flex-end;
+}
+
+.navegador>nav>a{
+    padding: 20px;
+    text-decoration: none;
+    color: #7b7b7b;
+    font-size: 17px;
+    transition: all 1s ease;
+}
+
+.navegador>nav>a:hover{
+    font-size: 19px;
+    color: black;
+}
+
+.principal{
+    background-image: url("../assets/fondo.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.principal>div:nth-child(1){
+    padding-top: 400px;
+    color:#4c4d4d;
+    padding-right: 500px;
+}
+
+.recuadros{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.recuadros>div{
+    color: white;
+    padding: 10px;
+
+}
+
+.iconos{
+    display: flex;
+    flex-direction: row;
+}
+
+.iconos>p{
+    padding: 20px;
+    font-size: 40px;
+    color: #66CDAA;
+    border: solid white 3px;
+    border-radius: 5px;
+    margin: 10px;
+}
