@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultorio Patricia's</title>
+</head>
+<body>
+    <div class="container-add">
+        <h2 class="container__title">Receta Medica</h2>
+        <form action="phpWord/receta_crear.php" method="POST" container__form">
+            <label for="" class="container__label">Doctor(a):</label>
+            <input type="text" class="container__input" name="doctor">
+            <label for="" class="container__label">Nombre del paciente:</label>
+            <input type="text" class="container__input" name="nom_pac">
+            <label for="" class="container__label">Edad:</label>
+            <input type="number" class="container__input" name="edad">
+            <label for="" class="container__label">Enfermedad diagnositicada</label>
+            <input type="text" class="container__input" name="efermedad">
+            <label for="" class="container__label">Receta Medica</label>
+            <input type="text" class="container__input"name="receta">
+            <input class="container__submit" type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+</html>
