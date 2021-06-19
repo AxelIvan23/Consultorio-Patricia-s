@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router'; 
 
 import { AppComponent } from './app.component';
 import { AcercaComponent } from './components/acerca/acerca.component';
@@ -7,6 +9,10 @@ import { ContactanosComponent } from './components/contactanos/contactanos.compo
 import { DrHistorialComponent } from './components/dr-historial/dr-historial.component';
 import { DrNotificacionComponent } from './components/dr-notificacion/dr-notificacion.component';
 import { VideollamadaComponent } from './components/videollamada/videollamada.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ConsultaComponent } from './components/consulta/consulta.component';
 
 @NgModule({
   declarations: [
@@ -15,10 +21,23 @@ import { VideollamadaComponent } from './components/videollamada/videollamada.co
     ContactanosComponent,
     DrHistorialComponent,
     DrNotificacionComponent,
-    VideollamadaComponent
+    VideollamadaComponent,
+    InicioComponent,
+    HeaderComponent,
+    FooterComponent,
+    ConsultaComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      {path: '', component: InicioComponent},
+      {path: 'Inicio', component: InicioComponent},
+      {path: 'Acerca', component: AcercaComponent},
+      {path: 'Contactanos', component: ContactanosComponent},
+      {path: 'DrHistorial/:id', component: ContactanosComponent},
+      {path: 'Videollamada/:tipo', component: VideollamadaComponent},
+      {path: '**', pathMatch: 'full', component: InicioComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

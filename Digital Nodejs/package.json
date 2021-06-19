@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AxelIvan23/Consultorio-Patricia-s/issues"
   },
-  "homepage": "https://github.com/AxelIvan23/Consultorio-Patricia-s#readme"
+  "homepage": "https://github.com/AxelIvan23/Consultorio-Patricia-s#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
