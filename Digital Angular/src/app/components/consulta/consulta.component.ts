@@ -12,4 +12,8 @@ export class ConsultaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ConsultarDoctor() {
+  	
+  }
+
 }
