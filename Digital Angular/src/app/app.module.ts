@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router'; 
+import { HttpClientModule } from '@angular/common/http';
+import { ViewChild } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AcercaComponent } from './components/acerca/acerca.component';
@@ -29,14 +31,16 @@ import { ConsultaComponent } from './components/consulta/consulta.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: InicioComponent},
       {path: 'Inicio', component: InicioComponent},
       {path: 'Acerca', component: AcercaComponent},
       {path: 'Contactanos', component: ContactanosComponent},
+      {path: 'Consulta', component: ConsultaComponent},
       {path: 'DrHistorial/:id', component: ContactanosComponent},
-      {path: 'Videollamada/:tipo', component: VideollamadaComponent},
-      {path: '**', pathMatch: 'full', component: InicioComponent}
+      {path: 'Videollamada', component: VideollamadaComponent},
+      {path: '**', pathMatch: 'full', component: InicioComponent} 
     ])
   ],
   providers: [],

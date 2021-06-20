@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ServerService } from '../../services/server.service';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-consulta',
@@ -7,13 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _server: ServerService) { }
+
+  ArrayDoctores: any = [];
 
   ngOnInit(): void {
   }
 
   ConsultarDoctor() {
-  	
-  }
+  	this._server.getDrDisponible().subscribe((data : any) => {
+  		this.ArrayDoctores=data;
+  		//console.log(this.ArrayDoctores.NOMBRE);
+  	});
+    const timer = interval(1000).subscribe(x => {
+      console.log(x);
+      timer.unsubscribe();
+    });
+     console.log("flash");
+  }	
 
 }
