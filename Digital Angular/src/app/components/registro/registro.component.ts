@@ -12,7 +12,7 @@ export class RegistroComponent implements OnInit {
     //Variables
     nombre = '';
     usuario = '';
-    correo = '';
+    correo = 'correo@correo.com';
     contrasena = '';
     dispo = 1;
     
@@ -31,10 +31,12 @@ export class RegistroComponent implements OnInit {
   ngOnInit(): void {
   }
     
-    enviarCorreo (){    
-        this.confirmacioncodigo=true;
-        this.formulario = false;
-        this._server.getCorreo(this.correo).subscribe(() => {
-  	     });
-    }
+  enviarCorreo (){    
+    console.log("correo: "+this.correo);
+      this.confirmacioncodigo=true;
+      this.formulario = false;
+      this._server.getCorreo(this.correo).subscribe((data:any) => {
+	      
+      });
+  }
 }

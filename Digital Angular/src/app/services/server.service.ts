@@ -10,7 +10,7 @@ export class ServerService {
   constructor(private http: HttpClient) { }
 
   getQuery(query : string) {
-    const url = `http://localhost:4200/${query}`;
+    const url = `http://localhost:3000/${query}`;
     return this.http.get(url);
   }
 

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router'; 
 import { HttpClientModule } from '@angular/common/http';
+import { ViewChild } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AcercaComponent } from './components/acerca/acerca.component';
@@ -44,7 +45,7 @@ import { RegistroComponent } from './components/registro/registro.component';
       {path: 'Registro', component: RegistroComponent},
       {path: 'Consulta', component: ConsultaComponent},
       {path: 'DrHistorial/:id', component: ContactanosComponent},
-      {path: 'Videollamada/:tipo', component: VideollamadaComponent},
+      {path: 'Videollamada', component: VideollamadaComponent},
       {path: '**', pathMatch: 'full', component: InicioComponent} 
     ])
   ],
