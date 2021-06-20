@@ -1,0 +1,100 @@
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-box-shadow: 7px 7px 22px 0px rgba(50, 50, 50, 0.4);
+    -moz-box-shadow:    7px 7px 22px 0px rgba(50, 50, 50, 0.4);
+    box-shadow:         7px 7px 22px 0px rgba(50, 50, 50, 0.4);
+    border-radius: 10px;
+    
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.disenobase{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-box-shadow: 7px 7px 22px 0px rgba(50, 50, 50, 0.4);
+    -moz-box-shadow:    7px 7px 22px 0px rgba(50, 50, 50, 0.4);
+    box-shadow:         7px 7px 22px 0px rgba(50, 50, 50, 0.4);
+    border-radius: 10px;
+    
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+input{
+    padding: 10px;
+    border: none;
+    color: black;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+    font-family: 'Quicksand', sans-serif;
+    width: 300px;
+   transition: all 0.5s ease;
+}
+
+input:focus{
+    transform: scale(1.05);
+}
+
+.btn_entrar{
+    border: none;
+    padding: 10px;
+    color: white;
+    background: linear-gradient(to right, #60d16d, #5ce2b9);
+    border-radius: 5px;
+    width: 255px;
+    margin: 8px;
+    transition: all 0.5s ease;
+}
+
+.btn_entrar:hover{
+    color: #000000;
+    transform: scale(1.15);
+}
+
+
+#User:focus{
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 1);
+}
+
+.olv_contra{
+    color: #bababa;
+    font-size: 11px;
+    margin-left: 75px;
+}
+.btn_crea{
+    padding: 13px ;
+    background: linear-gradient(to left, #60d16d, #5ce2b9);
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    align-content: center;
+    margin-left: 40px;
+    margin-bottom: auto;
+    margin-top: auto;
+    
+}
+
+.btn_crea:hover{
+    color: black;
+}
+
+.crear{
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
