@@ -10,7 +10,7 @@ export class ServerService {
   constructor(private http: HttpClient) { }
 
   getQuery(query : string) {
-    const url = `http://localhost:3000/${query}`;
+    const url = `http://localhost:4200/${query}`;
     return this.http.get(url);
   }
 
@@ -19,4 +19,10 @@ export class ServerService {
   		return data;
   	}));
   }
+    
+    getCorreo(correo){
+        return this.getQuery(`Registro/${correo}`).pipe(map(data => {
+            return data;
+        }));
+    }
 }

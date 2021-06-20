@@ -1,21 +1,21 @@
 <div>
-    <section>
+    <section *ngIf="formulario">
         <div>
           <br>
            <p style="text-align: center; font-size: 35px">Registro</p><br>
-            <form  method="POST" name="f1">
+            <form method="get" name="f1" (ngSubmit)="enviarCorreo()">
                 <label for="">Nombre completo: </label><br>
-                <input type="text" name="nombre" style="font-weight: bold" id="User" placeholder="Nombre Apellido" required><br><br>
+                <input type="text" name="nombre" style="font-weight: bold" id="User" placeholder="Nombre Apellido" required [(ngModel)]="nombre"><br><br>
                 <label for="">Nombre usuario:</label><br>
-                <input type="text" name="usuario" placeholder="Ejem:Usuario123" value="" required><br><br>
+                <input type="text" name="usuario" placeholder="Ejem:Usuario123" value="" required [(ngModel)]="usuario"><br><br>
                 <label for="">Correo Electronico:</label><br>
-                <input type="text" name="correo" placeholder="ejemplo@hotmail.com" value="" required><br><br>
+                <input type="text" name="correo" placeholder="ejemplo@hotmail.com" value="" required [(ngModel)]="nombre"><br><br>
                 <label for="">Contraseña:</label><br>
                 <input type="password" id="passwd" placeholder="Password" name="passwd" value="" required ><br><br>
                 <label for="">Confirmar Contrseña:</label><br>
                 <input type="password" id="passwd2" name="passwd2" placeholder="Password" value="" required><br><br>
                 <p style="color: red; font-size: 13px" id="error"></p>
-                <input type="submit" name="submit" value="Registrar" class="btn_entrar" style="margin-left: 25px">
+                <input type="submit" name="submit" value="Registrar" class="btn_entrar" style="margin-left: 25px" (click)="enviarCorreo()">
             </form>
             <!--<br><br><br><br><br>
             <div class="crear">
@@ -23,4 +23,24 @@
             </div>-->
         </div>
     </section>
+    
+    <div *ngIf="confirmacioncodigo" class="disenobase">
+       <h2 style="text-align: center">Se ha enviado un código a tu correo, escribe aquí debajo para completar el registro, es para verificar que tu correo es verdadero.</h2><br>
+        <form action="">
+            <input type="number"><br>
+            <input type="submit" value="enviar" class="btn_entrar" style="margin-left: 25px">
+        </form>
+    </div>
+    
+    <div *ngIf="exitoso" class="disenobase">
+        <p style="color: green; font-size: 120px"><i class="far fa-smile-beam"></i></p>
+        <h2 style="text-align: center">Excelente</h2>
+        <h4 style="text-align: center">Tu registro se ha completado con éxito ya puedes iniciar sesión y comenzar a utilizar las funciones de la pagina.</h4>
+    </div>
+    
+    <div *ngIf="incorrecto" class="disenobase">
+        <p style="color: darkred; font-size: 120px"><i class="far fa-angry"></i></p>
+        <h2 style="text-align: center">Código de verificación incorrecto</h2>
+        <h4 style="text-align: center">Parece que el código estaba incorrecto verifica si escribiste bien tu correo e intenta registrando tu información de nuevo.</h4>
+    </div>
 </div>

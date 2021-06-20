@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const nodemailer = require("nodemailer");
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -8,6 +9,11 @@ const app = express();
 var corsOptions = {
     origin: "http://localhost:8080"
 }
+
+
+var mensaje = "Hola  que tal este es tu código de verificación: \n\n ";
+
+var codigo = 14225;
 
 var mysql = require('mysql');
 var conexion= mysql.createConnection({
@@ -17,6 +23,17 @@ var conexion= mysql.createConnection({
     user : 'root',
     password : '',
 });
+
+
+const transporter = nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
+    auth: {
+        user: 'dakota.schaden43@ethereal.email',
+        pass: '5ywSmymbcG3MvdM32g'
+    }
+});
+
 
 app.use(cors());
 
@@ -29,6 +46,23 @@ app.get('/DrDisp', function(req, res) {
 		        res.send(result);
 		    });    
 		});
+});
+
+app.get('/Registro/:correo', function(req, res){
+    var correo = req.param['correo'];
+    var mailOptions = {
+      from: 'dakota.schaden43@ethereal.email',
+      to: correo,
+      subject: 'Codigo de verificacion',
+      text: (mensaje + codigo)
+    };
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email enviado: ' + info.response);
+      }
+    });
 });
 
 
