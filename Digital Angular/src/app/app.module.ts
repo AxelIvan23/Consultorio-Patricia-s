@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router'; 
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AcercaComponent } from './components/acerca/acerca.component';
@@ -13,6 +14,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ConsultaComponent } from './components/consulta/consulta.component';
+import { IniciosesionComponent } from './components/iniciosesion/iniciosesion.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -25,18 +28,24 @@ import { ConsultaComponent } from './components/consulta/consulta.component';
     InicioComponent,
     HeaderComponent,
     FooterComponent,
-    ConsultaComponent
+    ConsultaComponent,
+    IniciosesionComponent,
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: InicioComponent},
       {path: 'Inicio', component: InicioComponent},
       {path: 'Acerca', component: AcercaComponent},
       {path: 'Contactanos', component: ContactanosComponent},
+      {path: 'Iniciosesion', component: IniciosesionComponent},
+      {path: 'Registro', component: RegistroComponent},
+      {path: 'Consulta', component: ConsultaComponent},
       {path: 'DrHistorial/:id', component: ContactanosComponent},
       {path: 'Videollamada/:tipo', component: VideollamadaComponent},
-      {path: '**', pathMatch: 'full', component: InicioComponent}
+      {path: '**', pathMatch: 'full', component: InicioComponent} 
     ])
   ],
   providers: [],
