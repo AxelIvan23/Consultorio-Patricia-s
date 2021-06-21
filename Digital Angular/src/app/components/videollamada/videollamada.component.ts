@@ -56,6 +56,10 @@ export class VideollamadaComponent implements OnInit {
   	link.click();
   }
 
+  Irving() {
+    
+  }
+
    pause() {
     this.video.nativeElement.pause();
   }

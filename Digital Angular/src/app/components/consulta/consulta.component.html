@@ -1,3 +1,40 @@
+<div class="container-add">
+        <h1 class="container__title">Historial clinico</h1>
+        <form action="registrar.php" method="post" class="container__form">
+            <label for="" class="container__label">Nombre del paciente:</label>
+            <input type="text" class="container__input" name="nom_pac">
+
+            <label for="" class="container__label">Peso:</label>
+            <input type="number" step="number" class="container__input" name="peso">
+
+            <label for="" class="container__label">Talla:</label>
+            <input type="number" class="container__input" name="talla">
+
+            <label for="" class="container__label">Altura:</label>
+            <input type="number" step="number" class="container__input" name="altura">
+            <br><br>
+            <label for="" class="container__label">Temperatura:</label>
+            <input type="number" class="container__input" name="temperatura">
+            
+            <label for="" class="container__label">Presion arterial:</label>
+            <input type="text" class="container__input" name="presionart">
+
+            <label for="" class="container__label">Pulso:</label>
+            <input type="number" class="container__input" name="pulso">
+
+            <br><br>
+            <label for="" class="container__label">Prescripcion:</label>
+            <br>
+            <textarea name="prescripcion" id="" cols="100" rows="10"></textarea>
+            <br><br>
+            <label for="" class="container__label">Medicamentos:</label>
+            <br>
+            <textarea name="medicamentos" id="" cols="100" rows="10"></textarea>
+            
+            <br><br>
+            <input class="container__submit" type="submit" value="Registrar">
+        </form>
+    </div>
 <button type="button" class="btn btn-primary" (click)="ConsultarDoctor()">Pedir Doctor</button>
 
 
