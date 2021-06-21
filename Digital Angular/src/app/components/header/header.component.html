@@ -1,4 +1,19 @@
-<div class=" navegador">
+<nav>
+  <ul class="menu">
+    <li class="logo"><a [routerLink]="['Inicio']"><img src="../../../assets/logo_2.png" alt="" width="100px"></a></li>
+    <li class="item"><a [routerLink]="['Inicio']">Inicio</a></li>
+    <li class="item"><a [routerLink]="['Acerca']">Acerca de nosotros</a></li>
+    <li class="item"><a [routerLink]="['Consulta']">Contactanos</a>
+    </li>
+    <li class="item button" *ngIf="!usuariologeado()"><a [routerLink]="['Iniciosesion']" style="color: white" >Iniciar Sesion</a></li>
+    <li class="item button" *ngIf="usuariologeado()"><i class="far fa-user"></i> {{ usuario }}</li>
+    <li class="item button" *ngIf="usuariologeado()"><a [routerLink]="['Iniciosesion']" style="color: white" (click)="desconetar()">Desconectar</a></li>
+    <li class="item button secondary" *ngIf="!usuariologeado()"><a [routerLink]="['Registro']">Registrarse</a></li>
+    <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+  </ul>
+</nav>
+
+<!--<div class=" navegador">
     <a [routerLink]="['Inicio']"><img src="../assets/logo_2.png" alt="No se encontro la imagen" style="width: 30%"></a>
     <nav>
         <a [routerLink]="['Acerca']">Acerca de nosotros</a>
@@ -6,4 +21,4 @@
         <a [routerLink]="['Iniciosesion']">Iniciar sersion</a>
         <a [routerLink]="['Registro']">Registrarse como doctor</a>
     </nav>
-</div> 
+</div>--> 

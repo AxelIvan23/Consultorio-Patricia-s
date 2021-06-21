@@ -31,8 +31,8 @@ const transporter = nodemailer.createTransport({
     host: 'smtp.ethereal.email',
     port: 587,
     auth: {
-        user: 'dakota.schaden43@ethereal.email',
-        pass: '5ywSmymbcG3MvdM32g'
+        user: 'kyleigh.johns@ethereal.email',
+        pass: '59H4aFj1sReg9saeU8'
     }
 });
 
@@ -61,10 +61,10 @@ app.get('/setDr/:id/:disp', function(req, res) {
 });
 
 app.get('/Registro/:correo', function(req, res){
+    console.log(req.params['correo']);
     var correo = req.params['correo'];
-    console.log(correo);
-    /*var mailOptions = {
-      from: 'dakota.schaden43@ethereal.email',
+    var mailOptions = {
+      from: 'kyleigh.johns@ethereal.email',
       to: correo,
       subject: 'Codigo de verificacion',
       text: (mensaje + codigo)
@@ -74,16 +74,32 @@ app.get('/Registro/:correo', function(req, res){
         console.log(error);
       } else {
         console.log('Email enviado: ' + info.response);
+          res.send("");
       }
     });*/
     res.send('hola');
 });
 
-io.on('connection', (socket) => {
-  socket.on('stream', (image) => {
-    socket.broadcast.emit('stream', image);
-  })
-});
+app.get('/Doctor/:contra/:user', function(req,res){
+    var contra = req.params["contra"];
+    var user = req.params["user"];
+    console.log(contra + user);
+    conexion.query(`SELECT * FROM doctor WHERE  USUARIO = "${user}" AND CONTRASENA = "${contra}";`, function (error, results, fields){
+        if (error)
+		        throw error;
+        
+        var confirmacion = "";
+        results.forEach(result => {
+		        console.log(result);
+            confirmacion =result;
+        }); 
+        console.log(confirmacion);
+        if(confirmacion == "")
+            res.send(false);
+        else
+            res.send(true);
+    })
+})
 
 //conexion.end();
 http.listen(port, () => {

@@ -1,17 +1,17 @@
 <div>
-    <section>
+    <section *ngIf="mostrar2">
         <div>
             <br>
            <p style="text-align: center; font-size: 35px">Iniciar Sesion</p><br>
            <br>
         
-            <form  method="POST" name="f1">
-                <label for="">Usuario:</label><br>
-                <input type="text" name="usuario" placeholder="Ejem:Usuario123" value="" required><br><br>
-                <label for="">Contraseña:</label><br>
-                <input type="password" id="passwd" placeholder="Password" name="passwd" value="" required ><br><br>
+            <form name="f1">
+                <label for=""><i class="fas fa-user-alt" style="color: rgba(0, 0, 0, 0.3)"></i> Usuario:</label><br>
+                <input type="text" name="usuario" placeholder="Usuario" value="" required [(ngModel)]="usuario"><br><br>
+                <label for=""><i class="fas fa-key" style="color: rgba(0, 0, 0, 0.3)"></i> Contraseña:</label><br>
+                <input type="password" id="passwd" placeholder="Password" name="passwd" value="" required [(ngModel)]="contrasena"><br><br>
                 <p style="color: red; font-size: 13px" id="error"></p>
-                <input type="submit" name="submit" value="Registrar" class="btn_entrar" style="margin-left: 25px">
+                <input type="submit" name="submit" value="Entrar" class="btn_entrar" style="margin-left: 25px" (click)="logearse()">
             </form>
             <!--<br><br><br><br><br>
             <div class="crear">
@@ -19,4 +19,9 @@
             </div>-->
         </div>
     </section>
+    
+    <div *ngIf="mostrar" class="disenobase">
+        <h1>Hola {{ usuario }}</h1>
+        <h4 style="text-align: center">Disfruta de todas las funciones como {{ ocupacion }}</h4>
+    </div>
 </div>

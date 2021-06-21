@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { FormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { ServerService } from '../../services/server.service';
+
 
 @Component({
   selector: 'app-registro',
@@ -16,27 +17,32 @@ export class RegistroComponent implements OnInit {
     contrasena = '';
     dispo = 1;
     
+    
     confirmacioncodigo : boolean = false;
     exitoso : boolean = false;
     incorrecto : boolean = false;
     formulario : boolean = true;
+    show: boolean;
     
   constructor(private _server: ServerService) { 
       this.confirmacioncodigo = false;
       this.exitoso = false;
       this.incorrecto = false;
       this.formulario = true;
+      this.show = false;
+      
   }
 
   ngOnInit(): void {
   }
     
-  enviarCorreo (){    
-    console.log("correo: "+this.correo);
-      this.confirmacioncodigo=true;
-      this.formulario = false;
-      this._server.getCorreo(this.correo).subscribe((data:any) => {
-	      
-      });
+    enviarCorreo (){    
+        this.confirmacioncodigo=true;
+        this.formulario = false;
+        this._server.getCorreo(this.correo).subscribe((data : any) => {});
+    }
+    
+    mostrarContrasena(){
+        this.show = !this.show;
   }
 }
