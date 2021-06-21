@@ -76,7 +76,7 @@ app.get('/Registro/:correo', function(req, res){
         console.log('Email enviado: ' + info.response);
           res.send("");
       }
-    });*/
+    });
     res.send('hola');
 });
 
@@ -100,6 +100,12 @@ app.get('/Doctor/:contra/:user', function(req,res){
             res.send(true);
     })
 })
+
+io.on('connection', (socket) => {
+  socket.on('stream', (image) => {
+    socket.broadcast.emit('stream', image);
+  })
+});
 
 //conexion.end();
 http.listen(port, () => {

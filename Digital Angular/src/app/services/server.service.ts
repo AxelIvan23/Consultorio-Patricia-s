@@ -32,4 +32,10 @@ export class ServerService {
             return data;
         }));
     }
+    
+    setDisponibilidad(id,disp) {
+    return this.getQuery(`setDr/${id}/${disp}`).pipe(map(data => {
+          return data;
+      }));
+  }
 }
