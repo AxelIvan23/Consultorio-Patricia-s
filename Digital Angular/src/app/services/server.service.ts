@@ -73,4 +73,19 @@ export class ServerService {
       return this.cookies.get("usuario");
       // Aquí iría el endpoint para devolver el usuario para un token
     }
+    getUserType() {
+      return this.cookies.get("ocupacion");
+      // Aquí iría el endpoint para devolver el usuario para un token
+    }
+
+    getConsulta(usuario){
+        return this.getQuery(`getConsulta/${usuario}`).pipe(map(data => {
+            return data;
+        }));
+    }
+    getPaciente(id){
+        return this.getQuery(`getPaciente/${id}`).pipe(map(data => {
+            return data;
+        }));
+    }
 }

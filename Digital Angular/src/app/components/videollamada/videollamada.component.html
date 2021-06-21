@@ -11,5 +11,20 @@
       </div>
     </div>
   </div>
+
+  <section *ngIf="comprobar()">
+        <div>
+            <br>
+           <p style="text-align: center; font-size: 35px">Datos del paciente paciente</p><br>
+           <form name="f1">
+                <label for=""> Nombre: {{info.NOMBRE}}</label><br>
+                <label for=""> Direccion: {{info.DIRECCION}}</label><br>
+                <label for=""> Telefono: {{info.TELEFONO}}</label><br>
+                <label for=""> Alergias: {{info.ALERGIAS}}</label><br>
+                <label for=""> Tiposangre: {{info.TIPOSANGRE}}</label><br>
+                <label for=""> Edad: {{info.EDAD}}</label>
+            </form>
+        </div>
+  </section>
   <button type="button" class="btn btn-danger" (click)="Irving()">Presiona el boton para llamar la función de Irving</button>
   <a id="link" style="display: none;"></a>

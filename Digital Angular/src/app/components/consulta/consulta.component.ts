@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../../services/server.service';
 import { interval } from 'rxjs';
 import { ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-consulta',
@@ -10,11 +12,25 @@ import { ViewChild } from '@angular/core';
 })
 export class ConsultaComponent implements OnInit {
 
-  constructor(private _server: ServerService) { }
+  id_paciente: Number = 0;
+    nombre = '';
+    idpaciente:number =0;
+    peso: number=0;
+    talla: number=0;
+    altura: number=0;
+    temperatura: number=0;
+    presionart: string='';
+    pulso: number=0;
+    prescripcion: string ='';
+    medicamentos: string ='';
+
+  constructor(private _server: ServerService, private _activatedRoute: ActivatedRoute) { 
+    this._activatedRoute.params.subscribe( param =>  {
+       this.id_paciente = Number(param);
+    })
+  }
 
   ArrayDoctores: any = [];
-    
-    nombre='';
 
   ngOnInit(): void {
   }
@@ -66,8 +82,10 @@ export class ConsultaComponent implements OnInit {
       if (data.length>0) {
           dato=1;
           this._server.setDisponibilidad(id,'1').subscribe((data : any) => {
-            var link = document.getElementById('ToCall');
+            this._server.setVideollamada(id,this.id_paciente).subscribe((data : any) => {
+              var link = document.getElementById('ToCall');
               link.click();
+            });
           });
       } else {
         this._server.setDisponibilidad(id,'0').subscribe((data : any) => {});

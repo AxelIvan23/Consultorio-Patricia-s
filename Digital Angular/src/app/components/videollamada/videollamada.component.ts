@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ViewChild } from '@angular/core';
+import { ServerService } from '../../services/server.service';
 
 @Component({
   selector: 'app-videollamada',
@@ -11,9 +12,27 @@ export class VideollamadaComponent implements OnInit {
   public captures: Array<any>;
   public canvas: any;
 
-  constructor() {this.captures = []; this.canvas = document.createElement("canvas");}
+  info: any = [];
 
+  constructor(private _server: ServerService) {
+    this.captures = []; this.canvas = document.createElement("canvas");
+    if (this._server.getUserType()=="Doctor") {
+        this._server.getDrNombre(this._server.getUserLogged()).subscribe((data : any) => {
+            this._server.getConsulta(data[0].ID).subscribe((data2 : any) => {
+                this._server.getPaciente(data2[0].ID_PACIENTE).subscribe((data3 : any) => {
+                    this.info=data3[0];
+                });
+            });    
+        });   
+    }
+  }
 
+  comprobar() : boolean {
+      if(this._server.getUserType()=='Doctor')
+        return true;
+      else
+        return false;
+  }
 
   @ViewChild('videoElement')
   videoElement: any;  

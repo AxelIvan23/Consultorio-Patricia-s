@@ -54,7 +54,7 @@ import { FuncionesEnfermeraComponent } from './components/funciones-enfermera/fu
       {path: 'ConsultaHistPaciente', component: ConsultaHistPacienteComponent},
       {path: 'FuncionesEnfermera', component: FuncionesEnfermeraComponent},
       {path: 'Registro', component: RegistroComponent},
-      {path: 'Consulta', component: ConsultaComponent},
+      {path: 'Consulta/:id', component: ConsultaComponent},
       {path: 'DrHistorial/:id', component: ContactanosComponent},
       {path: 'Videollamada', component: VideollamadaComponent},
       {path: '**', pathMatch: 'full', component: InicioComponent} 
