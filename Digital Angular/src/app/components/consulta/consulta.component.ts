@@ -26,7 +26,8 @@ export class ConsultaComponent implements OnInit {
 
   constructor(private _server: ServerService, private _activatedRoute: ActivatedRoute) { 
     this._activatedRoute.params.subscribe( param =>  {
-       this.id_paciente = Number(param);
+      console.log(param.id);
+       this.id_paciente = Number(param.id);
     })
   }
 
