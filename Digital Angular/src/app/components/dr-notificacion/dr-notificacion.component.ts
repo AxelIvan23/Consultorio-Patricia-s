@@ -18,10 +18,13 @@ export class DrNotificacionComponent implements OnInit {
   	const timer = interval(400).subscribe((x) => {
       this._server.getDrDisponible('2').subscribe((data : any) => {
       	if (data.length>0) {
-	      	this.id=Number(data[0].ID);
-	      	console.log(data[0].ID);
-	      	var notificacion: HTMLElement = document.getElementById('container-not')|| new HTMLElement();
-	      	notificacion.style.top = "0vh";
+      		console.log(this._server.getUserLogged()+data[0].USUARIO);
+      		if (data[0].USUARIO == this._server.getUserLogged()) {
+		      	this.id=Number(data[0].ID);
+		      	console.log(data[0].ID);
+		      	var notificacion: HTMLElement = document.getElementById('container-not')|| new HTMLElement();
+		      	notificacion.style.top = "0vh";
+		    }
 	    }
       });
       
@@ -29,9 +32,12 @@ export class DrNotificacionComponent implements OnInit {
   }
 
   Aceptar() {
-  	this._server.setDisponibilidad(this.id,'1').subscribe((data2 : any) => {
+  	this._server.setDisponibilidad(this.id,'3').subscribe((data2 : any) => {
+  		var notificacion: HTMLElement = document.getElementById('container-not')|| new HTMLElement();
+      	notificacion.style.top = "-23vh";
+  		var link = document.getElementById('ToCall');
+        link.click();
     });
-    
   }
   Rechazar() {
   	var notificacion: HTMLElement = document.getElementById('container-not')|| new HTMLElement();

@@ -50,6 +50,20 @@ app.get('/DrDisp/:disp', function(req, res) {
 		});
 });
 
+app.get('/DrUser/:user', function(req, res) {
+  var user = req.params['user'];
+  conexion.query(`SELECT * FROM doctor WHERE USUARIO="${user}";`, function (error, results, fields) {
+        if (error)
+            throw error;
+        var resultados = [];
+        results.forEach(result => {
+            console.log(result);
+            resultados.push(result);
+        });  
+        res.send(resultados);  
+    });
+});
+
 app.get('/setDr/:id/:disp', function(req, res) {
   var id = req.params['id'];
   var disp = req.params['disp'];

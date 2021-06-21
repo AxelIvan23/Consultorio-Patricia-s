@@ -20,6 +20,12 @@ export class ServerService {
   		return data;
   	}));
   }
+
+  getDrNombre(user) {
+    return this.getQuery(`DrUser/${user}`).pipe(map(data => {
+      return data;
+    }));
+  }
     
     getCorreo(correo){
         return this.getQuery(`Registro/${correo}`).pipe(map(data => {
@@ -32,10 +38,14 @@ export class ServerService {
             return data;
         }));
     }
-    
+
     setDisponibilidad(id,disp) {
     return this.getQuery(`setDr/${id}/${disp}`).pipe(map(data => {
           return data;
       }));
+  }
+  getUserLogged() {
+    return this.cookies.get("usuario");
+    // Aquí iría el endpoint para devolver el usuario para un token
   }
 }
