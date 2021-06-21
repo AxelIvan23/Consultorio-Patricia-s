@@ -1,0 +1,51 @@
+<body>
+     <section>
+        <div>
+            <br>
+           <p style="text-align: center; font-size: 35px">Registrar a paciente</p><br>
+           <form name="f1">
+                <label for=""> Nombre:</label>
+                <input type="text" name="nombre" placeholder="Nombre" value="" required [(ngModel)]="nombre">&nbsp;&nbsp; <br>
+                <label for=""> Direccion:</label>&nbsp;
+                <input type="text" name="direccion" placeholder="..." value="" required [(ngModel)]="direccion" style="500px">&nbsp;<br>
+                <label for=""> Telefono:</label>
+                <input type="number" name="telefono" placeholder="449-157-2364" value="" required [(ngModel)]="telefono" style="width: 200px"><br>
+                <label for=""> Alergias:</label>
+                <input type="text" name="alergias" placeholder="Nueces, ..." value="" required [(ngModel)]="alergias">&nbsp;<br>
+                <label for=""> Tiposangre:</label>
+                <input type="text" name="sangre" placeholder="A+" value="" required [(ngModel)]="sangre" style="width: 100px">&nbsp;<br>
+                <label for=""> Edad:</label>
+                <input type="number" name="edad" placeholder="Edad" value="" required [(ngModel)]="edad" style="width: 100px"><br>
+                <input type="submit" name="submit" value="Cargar" class="btn_entrar1" style="margin-left: 25px" (click)="insertarpaciente()">
+            </form>
+            <!--
+            <form name="f1">
+                <label for=""> Nombre:</label>
+                <input type="text" name="nombre" placeholder="Nombre" value="" required [(ngModel)]="nombre">&nbsp;&nbsp;
+                <label for=""> ID Paciente:</label>&nbsp;
+                <input type="number" name="idpan" placeholder="Id " value="" required [(ngModel)]="idpaciente" style="width: 100px">&nbsp;
+                <label for=""> Peso:</label>
+                <input type="number" name="idpan" placeholder="Peso kg" value="" required [(ngModel)]="peso" style="width: 100px"><br>
+                <label for=""> Talla:</label>
+                <input type="number" name="idpan" placeholder="Talla cm" value="" required [(ngModel)]="talla" style="width: 100px">&nbsp;
+                <label for=""> Altura:</label>
+                <input type="number" name="idpan" placeholder="Altura cm" value="" required [(ngModel)]="altura" style="width: 100px">&nbsp;
+                <label for=""> Temperatura:</label>
+                <input type="number" name="idpan" placeholder="Temperatura C" value="" required [(ngModel)]="temperatura" style="width: 100px">&nbsp;
+                <label for=""> Presion Arterial:</label>
+                <input type="number" name="idpan" placeholder="/" value="" required [(ngModel)]="presionart" style="width: 100px"><br>
+                <label for=""> Pulso:</label>
+                <input type="number" name="idpan" placeholder="Pulso" value="" required [(ngModel)]="pulso" style="width: 100px"><br>
+                <label for=""> Prescripcion:</label><br>
+                <textarea name="" id="" cols="98" rows="7" required [(ngModel)]="prescripcion"></textarea><br>
+                <label for=""> Medicamentos:</label><br>
+                <textarea name="" id="" cols="98" rows="7" required [(ngModel)]="medicamentos"></textarea>
+                <input *ngIf="enfer" type="submit" name="submit" value="Cargar" class="btn_entrar1" style="margin-left: 25px" (click)="logearsenfer()">
+            </form>
+            <!--<br><br><br><br><br>
+            <div class="crear">
+                <p style="font-size: 15px">¿Ya tienes una cuenta registrada?</p> <a href="" class="btn_crea" style="margin-left: 90px">Iniciar sesion</a> 
+            </div>-->
+        </div>
+    </section>
+</body>

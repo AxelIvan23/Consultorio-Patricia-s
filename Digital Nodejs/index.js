@@ -19,7 +19,7 @@ var codigo = 14225;
 var mysql = require('mysql');
 var conexion= mysql.createConnection({
     host : 'localhost',
-    port : '3307',
+    port : '3306',
     database : 'consultorio',
     user : 'root',
     password : '',
@@ -156,6 +156,27 @@ app.get('/RegistroDoc/:nombre/:usuario/:correo/:contra/:disponibilidad', functio
         results.forEach(result => {
 		        console.log(result);
         }); 
+    })
+});
+
+app.get('/RegistroPaci/:nombre/:direccion/:telefono/:alergias/:sangre/:edad', function(req,res){
+    var nombre = req.params["nombre"];
+    var direccion = req.params["direccion"];
+    var telefono = req.params["telefono"];
+    var alergias = req.params["alergias"];
+    var sangre = req.params["sangre"];
+    var edad = req.params["edad"];
+    conexion.query(`INSERT INTO paciente ( NOMBRE, DIRECCION, TELEFONO, ALERGIAS, TIPOSANGRE, EDAD) VALUES ( '${nombre}', '${direccion}', '${telefono}', '${alergias}', '${sangre}', '${edad}');`, function(error, results, fields){
+        if (error){
+             throw error;
+            res.send(false)
+        }
+        else{
+            res.send(true);
+        }
+        results.forEach(result => {
+		        console.log(result);
+        });
     })
 });
 
