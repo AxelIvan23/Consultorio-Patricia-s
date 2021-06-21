@@ -24,16 +24,27 @@ export class IniciosesionComponent implements OnInit {
       this.contrasena = "";
       this.mostrar = false;
       this.mostrar2 = true;
+      
   }
 
   ngOnInit(): void {
   }
     
     logearse(){
-        Cookies.set('usuario', this.usuario);
+    console.log(this.usuario  + "  y  "+ this.contrasena);
+        
+    this._server.getUsuariosDoc(this.contrasena, this.usuario).subscribe((data : any) => {
+        if(data == true){
+            Cookies.set('usuario', this.usuario);
+        }else{
+            console.log("uy no no hay usuario")
+        }
+        
+        });
         this.mostrar = true;
         this.mostrar2 = false;
         this.ocupacion = "doctor";
     }
+
 
 }

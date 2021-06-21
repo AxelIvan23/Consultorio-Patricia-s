@@ -5,10 +5,10 @@
            <p style="text-align: center; font-size: 35px">Iniciar Sesion</p><br>
            <br>
         
-            <form  method="get" name="f1">
-                <label for="">Usuario:</label><br>
+            <form name="f1">
+                <label for=""><i class="fas fa-user-alt" style="color: rgba(0, 0, 0, 0.3)"></i> Usuario:</label><br>
                 <input type="text" name="usuario" placeholder="Usuario" value="" required [(ngModel)]="usuario"><br><br>
-                <label for="">Contraseña:</label><br>
+                <label for=""><i class="fas fa-key" style="color: rgba(0, 0, 0, 0.3)"></i> Contraseña:</label><br>
                 <input type="password" id="passwd" placeholder="Password" name="passwd" value="" required [(ngModel)]="contrasena"><br><br>
                 <p style="color: red; font-size: 13px" id="error"></p>
                 <input type="submit" name="submit" value="Entrar" class="btn_entrar" style="margin-left: 25px" (click)="logearse()">

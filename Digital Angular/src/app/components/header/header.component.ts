@@ -9,6 +9,8 @@ import * as Cookies from 'js-cookie';
 })
 export class HeaderComponent implements OnInit {
     
+    usuario = "";
+    
   constructor() {
     this.usuario = Cookies.get('usuario');
   }
@@ -19,7 +21,6 @@ export class HeaderComponent implements OnInit {
       this.usuario = Cookies.get('usuario');
   }
     
-    usuario = "";
     
     usuariologeado(){
         if(Cookies.get('usuario')==""){

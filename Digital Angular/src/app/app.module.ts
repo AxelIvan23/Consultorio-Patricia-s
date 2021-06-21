@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router'; 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
 import { AcercaComponent } from './components/acerca/acerca.component';
@@ -37,6 +39,7 @@ import { CookieService } from 'ngx-cookie-service';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: InicioComponent},

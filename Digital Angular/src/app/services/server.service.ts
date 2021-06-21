@@ -27,4 +27,9 @@ export class ServerService {
         }));
     }
     
+    getUsuariosDoc(contra, user) {
+        return this.getQuery(`Doctor/${contra}/${user}`).pipe(map(data => {
+            return data;
+        }));
+    }
 }

@@ -11,9 +11,7 @@
                 <label for="">Correo Electronico:</label><br>
                 <input type="text" name="correo" placeholder="ejemplo@hotmail.com" value="" required [(ngModel)]="correo"><br><br>
                 <label for="">Contraseña:</label><br>
-                <input type="password" id="passwd" placeholder="Password" name="passwd" value="" required [(ngModel)]="contrasena"><br><br>
-                <label for="">Confirmar Contrseña:</label><br>
-                <input type="password" id="passwd2" name="passwd2" placeholder="Password" value="" required [(ngModel)]="contrasena"><br><br>
+                <input [type]="show ? 'text' : 'password'" id="passwd" placeholder="Password" name="passwd" value="" required [(ngModel)]="contrasena"><button class="btn btn-success" (click)="mostrarContrasena()">Mostrar</button><br><br>
                 <p style="color: red; font-size: 13px" id="error"></p>
                 <input type="submit" name="submit" value="Registrar" class="btn_entrar" style="margin-left: 25px" (click)="enviarCorreo()">
             </form>
@@ -21,9 +19,6 @@
             <div class="crear">
                 <p style="font-size: 15px">¿Ya tienes una cuenta registrada?</p> <a href="" class="btn_crea" style="margin-left: 90px">Iniciar sesion</a> 
             </div>-->
-            
-            
-            
         </div>
     </section>
     

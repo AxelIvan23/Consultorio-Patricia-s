@@ -67,7 +67,26 @@ app.get('/Registro/:correo', function(req, res){
     });
 });
 
-
+app.get('/Doctor/:contra/:user', function(req,res){
+    var contra = req.params["contra"];
+    var user = req.params["user"];
+    console.log(contra + user);
+    conexion.query(`SELECT * FROM doctor WHERE  USUARIO = "${user}" AND CONTRASENA = "${contra}";`, function (error, results, fields){
+        if (error)
+		        throw error;
+        
+        var confirmacion = "";
+        results.forEach(result => {
+		        console.log(result);
+            confirmacion =result;
+        }); 
+        console.log(confirmacion);
+        if(confirmacion == "")
+            res.send(false);
+        else
+            res.send(true);
+    })
+})
 
 //conexion.end();
 app.listen(port, () =>{
