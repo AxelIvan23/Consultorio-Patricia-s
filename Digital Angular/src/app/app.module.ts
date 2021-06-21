@@ -50,7 +50,7 @@ import { CookieService } from 'ngx-cookie-service';
       {path: 'Registro', component: RegistroComponent},
       {path: 'Consulta', component: ConsultaComponent},
       {path: 'DrHistorial/:id', component: ContactanosComponent},
-      {path: 'Videollamada/:tipo', component: VideollamadaComponent},
+      {path: 'Videollamada', component: VideollamadaComponent},
       {path: '**', pathMatch: 'full', component: InicioComponent} 
     ])
   ],

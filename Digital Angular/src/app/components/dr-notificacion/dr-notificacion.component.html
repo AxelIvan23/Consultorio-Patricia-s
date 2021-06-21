@@ -1,1 +1,11 @@
-<p>dr-notificacion works!</p>
+<div id="container-not">
+	<div id="notificacion" class="container">
+		<h4>Consulta entrante para paciente!!!</h4>
+		<hr>
+		<div class="row">
+			<button type="button" class="btn btn-primary col-4 mx-4" (click)="Aceptar()">Aceptar</button>
+			<button type="button" class="btn btn-danger col-4 mx-4" (click)="Rechazar()">Nel</button>
+		</div>
+	</div>
+</div>
+<a [routerLink]="['Videollamada']" style="display: none;" id="ToCall"></a>

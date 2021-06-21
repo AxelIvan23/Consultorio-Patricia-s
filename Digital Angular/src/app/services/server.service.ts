@@ -15,10 +15,16 @@ export class ServerService {
     return this.http.get(url);
   }
 
-  getDrDisponible() {
-  	return this.getQuery(`DrDisp`).pipe(map(data => {
+  getDrDisponible(disp) {
+  	return this.getQuery(`DrDisp/${disp}`).pipe(map(data => {
   		return data;
   	}));
+  }
+
+  getDrNombre(user) {
+    return this.getQuery(`DrUser/${user}`).pipe(map(data => {
+      return data;
+    }));
   }
     
     getCorreo(correo){
@@ -32,16 +38,14 @@ export class ServerService {
             return data;
         }));
     }
-    
-    getUsuariosEnfe(contra, user){
-        return this.getQuery(`Enfermera/${contra}/${user}`).pipe(map(data => {
-                return data;
-        }));
-    }
-    
-    getRegistro(nombre, usuario, correo, contra, disponibilidad){
-        return this.getQuery(`RegistroDoc/${nombre}/${usuario}/${correo}/${contra}/${disponibilidad}`).pipe(map(data => {
-                return data;
-        }));
-    }
+
+    setDisponibilidad(id,disp) {
+    return this.getQuery(`setDr/${id}/${disp}`).pipe(map(data => {
+          return data;
+      }));
+  }
+  getUserLogged() {
+    return this.cookies.get("usuario");
+    // Aquí iría el endpoint para devolver el usuario para un token
+  }
 }

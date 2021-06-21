@@ -1,1 +1,15 @@
-<p>videollamada works!</p>
+  <div class="row">
+    <button (click)="start()" class="btn btn-primary">Empezar videollamada</button>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center">
+        <h3> 
+          <video #videoElement width="640" height="480" autoplay></video>
+        </h3> 
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-danger" (click)="Irving()">Presiona el boton para llamar la función de Irving</button>
+  <a id="link" style="display: none;"></a>
