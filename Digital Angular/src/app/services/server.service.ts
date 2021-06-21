@@ -32,4 +32,16 @@ export class ServerService {
             return data;
         }));
     }
+    
+    getUsuariosEnfe(contra, user){
+        return this.getQuery(`Enfermera/${contra}/${user}`).pipe(map(data => {
+                return data;
+        }));
+    }
+    
+    getRegistro(nombre, usuario, correo, contra, disponibilidad){
+        return this.getQuery(`RegistroDoc/${nombre}/${usuario}/${correo}/${contra}/${disponibilidad}`).pipe(map(data => {
+                return data;
+        }));
+    }
 }

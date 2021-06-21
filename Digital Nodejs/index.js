@@ -67,6 +67,7 @@ app.get('/Registro/:correo', function(req, res){
     });
 });
 
+//incio de sesion Doctores
 app.get('/Doctor/:contra/:user', function(req,res){
     var contra = req.params["contra"];
     var user = req.params["user"];
@@ -86,7 +87,52 @@ app.get('/Doctor/:contra/:user', function(req,res){
         else
             res.send(true);
     })
-})
+});
+
+//Inicio de sesion enfermeras
+app.get('/Enfermera/:contra/:user', function(req,res){
+    var contra = req.params["contra"];
+    var user = req.params["user"];
+    console.log(contra + user);
+    conexion.query(`SELECT * FROM enfermera WHERE  USUARIO = "${user}" AND CONTRASENA = "${contra}";`, function (error, results, fields){
+        if (error)
+		        throw error;
+        
+        var confirmacion2 = "";
+        results.forEach(result => {
+		        console.log(result);
+            confirmacion2 =result;
+        }); 
+        console.log(confirmacion2);
+        if(confirmacion2 == "")
+            res.send(false);
+        else
+            res.send(true);
+    })
+});
+
+//Registro del doctor
+app.get('/RegistroDoc/:nombre/:usuario/:correo/:contra/:disponibilidad', function(req,res){
+    var nombre = req.params["nombre"];
+    var usuario = req.params["usuario"];
+    var correo = req.params["correo"];
+    var contra = req.params["contra"];
+    var disponibilidad = req.param["disponibilidad"];
+    conexion.query(`INSERT INTO doctor ( NOMBRE, DISPONIBILIDAD, USUARIO, CONTRASENA, CORREO) VALUES ('${nombre}', 0, '${usuario}', '${contra}', '${correo}');`, function (error, results, fields){
+        if (error){
+             throw error;
+            res.send(false)
+        }
+        else{
+            res.send(true);
+        }
+        results.forEach(result => {
+		        console.log(result);
+        }); 
+    })
+});
+
+
 
 //conexion.end();
 app.listen(port, () =>{

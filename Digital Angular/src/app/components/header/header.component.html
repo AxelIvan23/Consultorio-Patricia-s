@@ -5,6 +5,8 @@
     <li class="item"><a [routerLink]="['Acerca']">Acerca de nosotros</a></li>
     <li class="item"><a [routerLink]="['Consulta']">Contactanos</a>
     </li>
+    <li class="item" *ngIf="enfermeralogeda()"><a href="">Administrar</a></li>
+    <li class="item" *ngIf="doctorlogeado()"><a href="">Administrar</a></li>
     <li class="item button" *ngIf="!usuariologeado()"><a [routerLink]="['Iniciosesion']" style="color: white" >Iniciar Sesion</a></li>
     <li class="item button" *ngIf="usuariologeado()"><i class="far fa-user"></i> {{ usuario }}</li>
     <li class="item button" *ngIf="usuariologeado()"><a [routerLink]="['Iniciosesion']" style="color: white" (click)="desconetar()">Desconectar</a></li>

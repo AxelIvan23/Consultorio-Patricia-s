@@ -17,33 +17,69 @@ export class IniciosesionComponent implements OnInit {
     mostrar : boolean = false;
     mostrar2 : boolean = true;
     
+    doctor: boolean = false;
+    enfer : boolean = true;
+    
     ocupacion = '';
     
   constructor(private _server: ServerService) {
-      this.usuario = "";
-      this.contrasena = "";
       this.mostrar = false;
       this.mostrar2 = true;
+      this.doctor = true;
+      this.usuario ='';
+      this.contrasena = '';
+      this.ocupacion = '';
+      this.enfer = false;
       
   }
 
   ngOnInit(): void {
-  }
+      this.doctor = true;
+      this.enfer = false;
+    }
     
-    logearse(){
-    console.log(this.usuario  + "  y  "+ this.contrasena);
+    activarboton1(){
+        this.doctor = true;
+        this.enfer = false;
+    }
+    
+    activarboton2(){
+        this.doctor = false;
+        this.enfer = true;
+    }
+    
+    logearsedoc(){
+        console.log(this.usuario  + "  y  "+ this.contrasena);
         
-    this._server.getUsuariosDoc(this.contrasena, this.usuario).subscribe((data : any) => {
-        if(data == true){
-            Cookies.set('usuario', this.usuario);
-        }else{
-            console.log("uy no no hay usuario")
-        }
+        this._server.getUsuariosDoc(this.contrasena, this.usuario).subscribe((data : any) => {
+            if(data == true){
+                Cookies.set('usuario', this.usuario);
+                Cookies.set('ocupacion', this.ocupacion);
+                this.mostrar = true;
+                this.mostrar2 = false;
+            }else{
+                console.log("uy no no hay usuario");
+                this.usuario ='';
+                this.contrasena ='';
+            }
         
         });
-        this.mostrar = true;
-        this.mostrar2 = false;
-        this.ocupacion = "doctor";
+    }
+
+    logearsenfer(){
+        this._server.getUsuariosEnfe(this.contrasena, this.usuario).subscribe((data : any) => {
+            if(data == true){
+                Cookies.set('usuario', this.usuario);
+                Cookies.set('ocupacion', this.ocupacion);
+                this.mostrar = true;
+                this.mostrar2 = false;
+            }else{
+                console.log("uy no no hay usuario");
+                this.usuario ='';
+                this.contrasena ='';
+            }
+        
+        });
     }
 
 

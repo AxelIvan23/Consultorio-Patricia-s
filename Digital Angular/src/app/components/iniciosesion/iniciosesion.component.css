@@ -48,11 +48,27 @@ input:focus{
     border: none;
     padding: 10px;
     color: white;
-    background: linear-gradient(to right, #d160a1, #e2dd5c);
+    background: linear-gradient(to right, #d16060, #66e25c);
     border-radius: 5px;
     width: 255px;
     margin: 8px;
     transition: all 0.5s ease;
+}
+
+.btn_entrar1{
+    border: none;
+    padding: 10px;
+    color: white;
+    background: linear-gradient(to right, #d160a1, #e2a95c);
+    border-radius: 5px;
+    width: 255px;
+    margin: 8px;
+    transition: all 0.5s ease;
+}
+
+.btn_entrar1:hover{
+    color: #000000;
+    transform: scale(1.15);
 }
 
 .btn_entrar:hover{
@@ -93,4 +109,13 @@ input:focus{
     display: flex;
     align-items: center;
     align-content: center;
+}
+
+.btn_radio{
+    padding: 10px;
+    border: none;
+    color: black;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+    font-family: 'Quicksand', sans-serif;
+    width: 50px;
 }

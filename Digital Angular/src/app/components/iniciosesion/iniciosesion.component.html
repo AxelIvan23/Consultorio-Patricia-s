@@ -10,8 +10,12 @@
                 <input type="text" name="usuario" placeholder="Usuario" value="" required [(ngModel)]="usuario"><br><br>
                 <label for=""><i class="fas fa-key" style="color: rgba(0, 0, 0, 0.3)"></i> Contraseña:</label><br>
                 <input type="password" id="passwd" placeholder="Password" name="passwd" value="" required [(ngModel)]="contrasena"><br><br>
+                <label for=""><i class="fas fa-briefcase" style="color: rgba(0, 0, 0, 0.3)"></i>Ocupacion:</label><br>
+                <input class="btn_radio" type="radio" (change)="activarboton1()" id="doctor" name="ocupacion" [(ngModel)]="ocupacion" value="Doctor"/><label for="doctor">Doctor</label><br>
+                <input class="btn_radio" type="radio" (change)="activarboton2()" id="enfermera" name="ocupacion" [(ngModel)]="ocupacion" value="Enfermera"/><label for="enfermera">Enfermera</label>
                 <p style="color: red; font-size: 13px" id="error"></p>
-                <input type="submit" name="submit" value="Entrar" class="btn_entrar" style="margin-left: 25px" (click)="logearse()">
+                <input *ngIf="doctor" type="submit" name="submit" value="Entrar" class="btn_entrar" style="margin-left: 25px" (click)="logearsedoc()" >
+                <input *ngIf="enfer" type="submit" name="submit" value="Entrar" class="btn_entrar1" style="margin-left: 25px" (click)="logearsenfer()">
             </form>
             <!--<br><br><br><br><br>
             <div class="crear">
