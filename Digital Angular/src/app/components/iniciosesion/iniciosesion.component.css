@@ -14,6 +14,22 @@ section{
     border-radius: 10px;
 }
 
+.disenobase{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-box-shadow: 7px 7px 22px 0px rgba(50, 50, 50, 0.4);
+    -moz-box-shadow:    7px 7px 22px 0px rgba(50, 50, 50, 0.4);
+    box-shadow:         7px 7px 22px 0px rgba(50, 50, 50, 0.4);
+    border-radius: 10px;
+}
+
 input{
     padding: 10px;
     border: none;

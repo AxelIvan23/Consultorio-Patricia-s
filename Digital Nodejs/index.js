@@ -29,8 +29,8 @@ const transporter = nodemailer.createTransport({
     host: 'smtp.ethereal.email',
     port: 587,
     auth: {
-        user: 'dakota.schaden43@ethereal.email',
-        pass: '5ywSmymbcG3MvdM32g'
+        user: 'kyleigh.johns@ethereal.email',
+        pass: '59H4aFj1sReg9saeU8'
     }
 });
 
@@ -49,9 +49,10 @@ app.get('/DrDisp', function(req, res) {
 });
 
 app.get('/Registro/:correo', function(req, res){
-    var correo = req.param['correo'];
+    console.log(req.params['correo']);
+    var correo = req.params['correo'];
     var mailOptions = {
-      from: 'dakota.schaden43@ethereal.email',
+      from: 'kyleigh.johns@ethereal.email',
       to: correo,
       subject: 'Codigo de verificacion',
       text: (mensaje + codigo)
@@ -61,6 +62,7 @@ app.get('/Registro/:correo', function(req, res){
         console.log(error);
       } else {
         console.log('Email enviado: ' + info.response);
+          res.send("");
       }
     });
 });

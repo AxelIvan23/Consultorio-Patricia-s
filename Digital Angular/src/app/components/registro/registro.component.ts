@@ -12,7 +12,7 @@ export class RegistroComponent implements OnInit {
     //Variables
     nombre = '';
     usuario = '';
-    correo = '';
+    correo = 'probarphpemail@gmail.com';
     contrasena = '';
     dispo = 1;
     
@@ -34,7 +34,6 @@ export class RegistroComponent implements OnInit {
     enviarCorreo (){    
         this.confirmacioncodigo=true;
         this.formulario = false;
-        this._server.getCorreo(this.correo).subscribe(() => {
-  	     });
+        this._server.getCorreo(this.correo).subscribe((data : any) => {});
     }
 }

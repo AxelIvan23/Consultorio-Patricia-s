@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router'; 
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AcercaComponent } from './components/acerca/acerca.component';
@@ -16,6 +17,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ConsultaComponent } from './components/consulta/consulta.component';
 import { IniciosesionComponent } from './components/iniciosesion/iniciosesion.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { RegistroComponent } from './components/registro/registro.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: InicioComponent},
@@ -48,7 +51,7 @@ import { RegistroComponent } from './components/registro/registro.component';
       {path: '**', pathMatch: 'full', component: InicioComponent} 
     ])
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
