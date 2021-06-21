@@ -43,9 +43,16 @@ export class ServerService {
     return this.getQuery(`setDr/${id}/${disp}`).pipe(map(data => {
           return data;
       }));
-  }
-  getUserLogged() {
-    return this.cookies.get("usuario");
-    // Aquí iría el endpoint para devolver el usuario para un token
-  }
+    }
+
+    setVideollamada(id_dr,id_paciente) {
+    return this.getQuery(`setLlamada/${id_dr}/${id_paciente}`).pipe(map(data => {
+          return data;
+      }));
+    }
+
+    getUserLogged() {
+      return this.cookies.get("usuario");
+      // Aquí iría el endpoint para devolver el usuario para un token
+    }
 }

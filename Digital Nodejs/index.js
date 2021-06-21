@@ -113,7 +113,23 @@ app.get('/Doctor/:contra/:user', function(req,res){
         else
             res.send(true);
     })
-})
+});
+
+app.get('/setLlamada/:id_dr/:id_paciente', function(req,res){
+    var id_dr = req.params["id_dr"];
+    var id_paciente = req.params["id_paciente"];
+    conexion.query(`INSERT INTO videollamada (ID_DR,ID_PACIENTE) VALUES (${id_dr}, ${id_paciente});`, function (error, results, fields){
+        if (error)
+            throw error;
+        
+        var confirmacion = "";
+        console.log(confirmacion);
+        if(confirmacion == "")
+            res.send(false);
+        else
+            res.send(true);
+    })
+});
 
 io.on('connection', (socket) => {
   socket.on('stream', (image) => {
