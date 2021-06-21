@@ -19,15 +19,29 @@ export class ConsultaComponent implements OnInit {
   }
 
   ConsultarDoctor() {
-    this._server.getDrDisponible().subscribe((data : any) => {
-      this.ArrayDoctores=data;
-      //console.log(this.ArrayDoctores.NOMBRE);
+    this._server.getDrDisponible('0').subscribe((data : any) => {
+        this.ArrayDoctores=data;
+        //console.log(this.ArrayDoctores.NOMBRE);
+        const timer = interval(10000).subscribe((x=Number(this.ArrayDoctores[0].ID)) => {
+          if (x>=this.ArrayDoctores.length) {
+            timer.unsubscribe();
+            console.log("No se encontraron Doctores disponibles :o");
+          }
+          else {
+            console.log(x);
+            if (this.PeticionDoctor(Number(this.ArrayDoctores[x].ID)))
+              timer.unsubscribe();
+          }
+        });
+
+        //console.log("flash: "+ this.ArrayDoctores.length);
     });
-    const timer = interval(1000).subscribe(x => {
-      console.log(x);
-      timer.unsubscribe();
-    });
-     console.log("flash");
   }	
+
+  PeticionDoctor(id: number) : boolean {
+    this._server.setDisponibilidad(id,'2').subscribe((data : any) => {
+    });
+    return false;
+  }
 
 }

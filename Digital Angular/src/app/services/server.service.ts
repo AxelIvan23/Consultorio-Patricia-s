@@ -14,15 +14,21 @@ export class ServerService {
     return this.http.get(url);
   }
 
-  getDrDisponible() {
-  	return this.getQuery(`DrDisp`).pipe(map(data => {
+  getDrDisponible(disp) {
+  	return this.getQuery(`DrDisp/${disp}`).pipe(map(data => {
   		return data;
   	}));
   }
     
-    getCorreo(correo){
-        return this.getQuery(`Registro/${correo}`).pipe(map(data => {
-            return data;
-        }));
-    }
+  getCorreo(correo){
+      return this.getQuery(`Registro/${correo}`).pipe(map(data => {
+          return data;
+      }));
+  }
+
+  setDisponibilidad(id,disp) {
+    return this.getQuery(`setDr/${id}/${disp}`).pipe(map(data => {
+          return data;
+      }));
+  }
 }

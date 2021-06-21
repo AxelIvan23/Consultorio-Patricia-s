@@ -36,21 +36,34 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-app.get('/DrDisp', function(req, res) {
-	conexion.query('SELECT * FROM doctor WHERE DISPONIBILIDAD=0;', function (error, results, fields) {
+app.get('/DrDisp/:disp', function(req, res) {
+  var disp = req.params['disp'];
+	conexion.query(`SELECT * FROM doctor WHERE DISPONIBILIDAD=${disp};`, function (error, results, fields) {
 		    if (error)
 		        throw error;
+        var resultados = [];
 		    results.forEach(result => {
 		        console.log(result);
-		        res.send(result);
-		    });    
+		        resultados.push(result);
+		    });  
+        res.send(resultados);  
 		});
 });
 
+app.get('/setDr/:id/:disp', function(req, res) {
+  var id = req.params['id'];
+  var disp = req.params['disp'];
+  conexion.query(`UPDATE doctor SET DISPONIBILIDAD = ${disp} WHERE doctor.ID = ${id};`, function (error, results, fields) {
+        if (error)
+            throw error;
+        res.send('');  
+    });
+});
+
 app.get('/Registro/:correo', function(req, res){
-    var correo = req.param['correo'];
+    var correo = req.params['correo'];
     console.log(correo);
-    var mailOptions = {
+    /*var mailOptions = {
       from: 'dakota.schaden43@ethereal.email',
       to: correo,
       subject: 'Codigo de verificacion',
@@ -62,8 +75,8 @@ app.get('/Registro/:correo', function(req, res){
       } else {
         console.log('Email enviado: ' + info.response);
       }
-    });
-    res.send('');
+    });*/
+    res.send('hola');
 });
 
 io.on('connection', (socket) => {

@@ -12,7 +12,7 @@ export class RegistroComponent implements OnInit {
     //Variables
     nombre = '';
     usuario = '';
-    correo = 'correo@correo.com';
+    correo = 'axelaxel23@live.com';
     contrasena = '';
     dispo = 1;
     
