@@ -1,0 +1,43 @@
+*{
+    color: black;
+}
+.informacion{
+    margin: 20px 300px;
+    padding: 20px 50px;
+    background-color: #ffffff;
+    
+}
+
+h1{
+  text-align: center;  
+}
+
+.btnhidden{
+    display: none;
+}
+
+button{
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border-style: none;
+    font-weight: bold;
+}
+
+button:hover{
+    background-color: #c6c6c6;
+}
+
+.descripcion{
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    
+}
+
+span{
+    background-color: #709db9;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    
+}

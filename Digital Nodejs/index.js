@@ -19,7 +19,7 @@ var codigo = 14225;
 var mysql = require('mysql');
 var conexion= mysql.createConnection({
     host : 'localhost',
-    port : '3307',
+    port : '3306',
     database : 'consultorio',
     user : 'root',
     password : '',
@@ -94,6 +94,7 @@ app.get('/Registro/:correo', function(req, res){
     res.send('hola');
 });
 
+//incio de sesion Doctores
 app.get('/Doctor/:contra/:user', function(req,res){
     var contra = req.params["contra"];
     var user = req.params["user"];
@@ -115,21 +116,71 @@ app.get('/Doctor/:contra/:user', function(req,res){
     })
 });
 
-app.get('/setLlamada/:id_dr/:id_paciente', function(req,res){
-    var id_dr = req.params["id_dr"];
-    var id_paciente = req.params["id_paciente"];
-    conexion.query(`INSERT INTO videollamada (ID_DR,ID_PACIENTE) VALUES (${id_dr}, ${id_paciente});`, function (error, results, fields){
+//Inicio de sesion enfermeras
+app.get('/Enfermera/:contra/:user', function(req,res){
+    var contra = req.params["contra"];
+    var user = req.params["user"];
+    console.log(contra + user);
+    conexion.query(`SELECT * FROM enfermera WHERE  USUARIO = "${user}" AND CONTRASENA = "${contra}";`, function (error, results, fields){
         if (error)
-            throw error;
+		        throw error;
         
-        var confirmacion = "";
-        console.log(confirmacion);
-        if(confirmacion == "")
+        var confirmacion2 = "";
+        results.forEach(result => {
+		        console.log(result);
+            confirmacion2 =result;
+        }); 
+        console.log(confirmacion2);
+        if(confirmacion2 == "")
             res.send(false);
         else
             res.send(true);
     })
 });
+
+//Registro del doctor
+app.get('/RegistroDoc/:nombre/:usuario/:correo/:contra/:disponibilidad', function(req,res){
+    var nombre = req.params["nombre"];
+    var usuario = req.params["usuario"];
+    var correo = req.params["correo"];
+    var contra = req.params["contra"];
+    var disponibilidad = req.param["disponibilidad"];
+    conexion.query(`INSERT INTO doctor ( NOMBRE, DISPONIBILIDAD, USUARIO, CONTRASENA, CORREO) VALUES ('${nombre}', 0, '${usuario}', '${contra}', '${correo}');`, function (error, results, fields){
+        if (error){
+             throw error;
+            res.send(false)
+        }
+        else{
+            res.send(true);
+        }
+        results.forEach(result => {
+		        console.log(result);
+        }); 
+    })
+});
+
+app.get('/RegistroPaci/:nombre/:direccion/:telefono/:alergias/:sangre/:edad', function(req,res){
+    var nombre = req.params["nombre"];
+    var direccion = req.params["direccion"];
+    var telefono = req.params["telefono"];
+    var alergias = req.params["alergias"];
+    var sangre = req.params["sangre"];
+    var edad = req.params["edad"];
+    conexion.query(`INSERT INTO paciente ( NOMBRE, DIRECCION, TELEFONO, ALERGIAS, TIPOSANGRE, EDAD) VALUES ( '${nombre}', '${direccion}', '${telefono}', '${alergias}', '${sangre}', '${edad}');`, function(error, results, fields){
+        if (error){
+             throw error;
+            res.send(false)
+        }
+        else{
+            res.send(true);
+        }
+        results.forEach(result => {
+		        console.log(result);
+        });
+    })
+});
+
+
 
 io.on('connection', (socket) => {
   socket.on('stream', (image) => {

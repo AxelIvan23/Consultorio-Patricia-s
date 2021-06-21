@@ -14,3 +14,41 @@
 .recuadros>div:hover{
     transform: scale(1.05);
 }
+
+.interno{
+    display: flex;
+    background-color: #4cbe81;
+}
+
+.interno > div{
+    padding: 30px;
+    padding-top: 150px;
+    padding-left: 150px;
+}
+
+.footer{
+    background-color: #303030;
+    color: #d3d3d3;
+}
+
+.internofooter{
+    padding: 25px;
+    padding-top: 25px;
+}
+
+a{
+    color: #d3d3d3;
+    text-decoration: none;
+}
+
+.footer2{
+    background-color: #252525;
+}
+.info>p{
+    font-size: 25px;
+    padding-left: 50px;
+}
+
+.infor> h1{
+    text-align: center;
+}

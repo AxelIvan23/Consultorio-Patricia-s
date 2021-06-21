@@ -29,9 +29,25 @@ export class HeaderComponent implements OnInit {
             return true;
         }
     }
+    enfermeralogeda(){
+        if(Cookies.get('ocupacion')=="Enfermera"){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    doctorlogeado(){
+        if(Cookies.get('ocupacion')=="Doctor"){
+            return true;
+        }else{
+            return false;
+        }
+    }
     
     desconetar(){
         Cookies.set('usuario', '');
+        Cookies.set('ocupacion', '');
     }
     /*
     $(function() {

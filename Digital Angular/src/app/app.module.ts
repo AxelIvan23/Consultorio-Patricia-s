@@ -20,6 +20,8 @@ import { ConsultaComponent } from './components/consulta/consulta.component';
 import { IniciosesionComponent } from './components/iniciosesion/iniciosesion.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { CookieService } from 'ngx-cookie-service';
+import { ConsultaHistPacienteComponent } from './components/consulta-hist-paciente/consulta-hist-paciente.component';
+import { FuncionesEnfermeraComponent } from './components/funciones-enfermera/funciones-enfermera.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { CookieService } from 'ngx-cookie-service';
     ConsultaComponent,
     IniciosesionComponent,
     RegistroComponent,
+    ConsultaHistPacienteComponent,
+    FuncionesEnfermeraComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +51,8 @@ import { CookieService } from 'ngx-cookie-service';
       {path: 'Acerca', component: AcercaComponent},
       {path: 'Contactanos', component: ContactanosComponent},
       {path: 'Iniciosesion', component: IniciosesionComponent},
+      {path: 'ConsultaHistPaciente', component: ConsultaHistPacienteComponent},
+      {path: 'FuncionesEnfermera', component: FuncionesEnfermeraComponent},
       {path: 'Registro', component: RegistroComponent},
       {path: 'Consulta', component: ConsultaComponent},
       {path: 'DrHistorial/:id', component: ContactanosComponent},

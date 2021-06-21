@@ -15,7 +15,7 @@ export class RegistroComponent implements OnInit {
     usuario = '';
     correo = 'axelaxel23@live.com';
     contrasena = '';
-    dispo = 1;
+    dispo = 0;
     
     
     confirmacioncodigo : boolean = false;
@@ -45,4 +45,20 @@ export class RegistroComponent implements OnInit {
     mostrarContrasena(){
         this.show = !this.show;
   }
+    
+    logearsenfer(){
+        this._server.getRegistro(this.nombre, this.usuario, this.correo, this.contrasena, this.dispo).subscribe((data : any) => {
+            if(data == true){
+                //Cookies.set('usuario', this.usuario);
+               //Cookies.set('ocupacion', this.ocupacion);
+                this.exitoso = true;
+                this.formulario = false;
+            }else{
+                console.log("uy no no hay usuario");
+                this.formulario = false;
+                this.incorrecto = true;
+            }
+        
+        });
+    }
 }

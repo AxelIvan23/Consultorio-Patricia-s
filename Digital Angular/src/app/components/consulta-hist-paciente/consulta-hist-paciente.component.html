@@ -1,0 +1,20 @@
+<body>
+     <section class="container">
+        <h1>Descripcion de Video juegos</h1>
+        <hr>
+        <div class="juegos">
+            <h3>Ark Survival Envolve</h3>
+            <button (click)="desplegarInfo(true)" [class.btnhidden]="desplegar === true">Mostrar Descripcion</button>
+            <button (click)="desplegarInfo(false)" [class.btnhidden]="desplegar === false">Contraer descripcion</button>
+            <div *ngIf="desplegar === true" class="descripcion">
+                <p>Fecha de lanzamiento: 27 Agosto 2017</p>
+                <p>Desarrollado por: <span>Studio Wildcard </span> <span>Instinct Games </span> <span>Efecto Studios </span> <span>Virtual Basement LLC</span></p>
+                <p>Genero: <span>Superviviencia en un mundo abierto </span><span>Aventura</span> <span>Construccion</span> <span>Sandbox</span></p>
+                <p>Descripcion: <br><br>Varado en las costas de una isla misteriosa, debes aprender a sobrevivir. Usa tu astucia para matar o domesticar a las criaturas primigenias que deambulan por la tierra y encuentra a otros jugadores para sobrevivir, dominar ... ¡y escapar! </p>
+            </div>
+        </div>
+        <div>
+            
+        </div>
+    </section>
+</body>
